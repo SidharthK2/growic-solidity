@@ -12,4 +12,8 @@ contract Task2 {
     function deposit(uint256 depositAmount) public {
         addressToBalance[i_owner] += depositAmount;
     }
+
+    function checkBalance() public view returns (uint256) {
+        return addressToBalance[i_owner];
+    }
 }
