@@ -23,15 +23,11 @@ contract Task2 {
         return addressToUser[i_owner].balance;
     }
 
-    function setUserDetails(
-        string calldata name,
-        uint256 age,
-        uint256 balance
-    ) public {
+    function setUserDetails(string calldata name, uint256 age) public {
         User memory user;
         user.name = name;
         user.age = age;
-        user.balance = balance;
+        user.balance = checkBalance();
         addressToUser[i_owner] = user;
     }
 
