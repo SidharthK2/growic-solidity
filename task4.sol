@@ -10,7 +10,7 @@ contract Task2 {
         uint256 balance;
     }
 
-    uint256 private constant FEE = 1;
+    uint256 private constant FEE = 2;
     address public immutable i_owner;
     mapping(address => User) public addressToUser;
     mapping(address => uint256) public addressToAmount;
@@ -25,7 +25,7 @@ contract Task2 {
     }
 
     modifier onlyDepositers(address _addr) {
-        require(addressToAmount[_addr] == 0, "Did not deposit");
+        require(addressToAmount[_addr] != 0, "Did not deposit");
         _;
     }
 
