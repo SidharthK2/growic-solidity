@@ -8,6 +8,7 @@ error AmountToSmall();
 contract myToken is ERC20 {
     event FundsDeposited(address user, uint amount);
     event ProfileUpdated(address user);
+    event Log(address sender, uint256 value, bytes data)
 
     struct User {
         string name;
@@ -87,5 +88,9 @@ contract myToken is ERC20 {
             addressToUser[i_owner].age,
             addressToUser[i_owner].balance
         );
+    }
+
+    fallback() external payable {
+        emit Log(msg.sender, msg.value, msg.data);
     }
 }
