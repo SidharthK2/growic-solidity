@@ -8,7 +8,7 @@ error AmountToSmall();
 contract myToken is ERC20 {
     event FundsDeposited(address user, uint amount);
     event ProfileUpdated(address user);
-    event Log(address sender, uint256 value, bytes data)
+    event Log(string func, address sender, uint256 value, bytes data)
 
     struct User {
         string name;
@@ -91,6 +91,6 @@ contract myToken is ERC20 {
     }
 
     fallback() external payable {
-        emit Log(msg.sender, msg.value, msg.data);
+        emit Log("fallback", msg.sender, msg.value, msg.data);
     }
 }
