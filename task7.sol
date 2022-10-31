@@ -91,10 +91,10 @@ contract myToken is ERC20 {
     }
 
     recieve() external payable {
-        emit Log("recieve", msg.sender, msg.value, msg.data);
+        emit Log("recieve", msg.sender, msg.value, "");
     }
 
     fallback() external payable {
-        emit Log("fallback", msg.sender, msg.value, "");
+        emit Log("fallback", msg.sender, msg.value, msg.data );
     }
 }
